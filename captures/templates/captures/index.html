@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soar Python</title>
+</head>
+<body>
+<h1>Configuration de la Capture Réseau</h1>
+<form action="{% url 'afterSubmit' %}" method="POST">
+    {% csrf_token %}
+    <label for="interface">Interface Réseau à Sniffer :</label>
+    <select name="interface" id="interface">
+    {% for option_value, option_label in interface_options %}
+        <option value="{{ option_value }}">{{ option_label }}</option>
+    {% endfor %}
+</select>
+    <br>
+    <br>
+
+    <label for="nombre_packets">Nombre de Paquets à Capturer :</label>
+    <input type="number" name="nombre_packets" id="nombre_packets" value="0"><br><br>
+
+    <label for="date_heure">Date et Heure de Lancement :</label>
+    <input type="datetime-local" name="date_heure" id="date_heure"><br><br>
+
+    <input type="submit" value="Envoyer">
+</form>
+<a href="{% url 'admin:login' %}" class="btn btn-primary">Connexion Admin</a>
+</body>
+</html>

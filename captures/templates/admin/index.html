@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends "admin/base.html" %}
+{% block content %}
+    <div class="module">
+        <h2>Liste des Captures</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Interface</th>
+                    <th>Nombre de Paquets</th>
+                    <th>Date et Heure</th>
+                    <th>Fait</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for capture in captures %}
+                    <tr>
+                        <td>{{ capture.interface }}</td>
+                        <td>{{ capture.nb_packet }}</td>
+                        <td>{{ capture.date_heure }}</td>
+                        <td>{{ capture.fait }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+</body>
+</html>
